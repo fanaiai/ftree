@@ -136,6 +136,8 @@ var data = [
 ]
 var ftree=new Ftree($("#tree"),data,
 	{
+	childnodename:'child',
+	nodename:'name',
 	onAdd:function($target,$ptarget){
 		// console.log($ptarget.attr('data-id'))
 	},

@@ -3,7 +3,9 @@
         autoopen: false,
         canadd:true,
         canedit:true,
-        candelete:true
+        candelete:true,
+        childnodename:'child',
+		nodename:'name'
     }
 
     function Ftree($parentdom, data, options) {
@@ -31,7 +33,7 @@
             data.forEach(function(v, i) {
                 var haschild = false
                 var up = '';
-                if (v.child && v.child.length > 0) {
+                if (v[that.option.childnodename] && v[that.option.childnodename].length > 0) {
                     haschild = true;
                     up = 'up';
                 }
@@ -39,15 +41,15 @@
                     up = haschild && 'down';
                 }
                 treehtml += '<li class="spirit ' + up + '"><div class="folder spirit"><div class="nodename" data-id="'
-                treehtml += (v.id || '') + '" data-ope="'+v.canadd+','+v.canedit+','+v.candelete+'"><span>' + v.name
+                treehtml += (v.id || '') + '" data-ope="'+v.canadd+','+v.canedit+','+v.candelete+'"><span>' + v[that.option.nodename]
                 treehtml += `</span><div class="ope">
 	                        <a class="spirit add"></a>
 	                       <a class="spirit edit"></a>
 	                        <a class="spirit delete"></a>
 	                    </div></div>`;
 
-                if (v.child && v.child.length > 0) {
-                    treehtml += that._generalHtml(v.child);
+                if (v[that.option.childnodename] && v[that.option.childnodename].length > 0) {
+                    treehtml += that._generalHtml(v[that.option.childnodename]);
                 }
                 treehtml += `</div></li>`
             })
@@ -80,7 +82,8 @@
             var that = this;
             this.$treehtml.find('.nodename').hover(function(e) {
                     var $target = $(e.currentTarget);
-            		var opelist=$target.attr('data-ope').split(',');
+                    var opelist=[true,true,true]
+            		opelist=$target.attr('data-ope') && $target.attr('data-ope').split(',');
                     $('.ope').hide();
                     $target.find('.ope').show();
                     that.option.canadd && opelist[0]!="false" && $target.find('.add').css('display','inline-block');
@@ -137,7 +140,7 @@
             if ($ptarget.next('ul').length <= 0) {
                 $ptarget.parent().append('<ul></ul>');
             }
-            var $newli = $(`<li class="spirit"><div class="folder spirit"><div class="nodename" data-id="11"><span>新节点</span><div class="ope" style="display: none;">
+            var $newli = $(`<li class="spirit"><div class="folder spirit"><div class="nodename" data-ope="true,true,true"><span>新节点</span><div class="ope" style="display: none;">
                 <a class="spirit add"></a>
                	<a class="spirit edit"></a>
                 <a class="spirit delete"></a>
