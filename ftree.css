@@ -1,0 +1,189 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video,h4,h5 {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body a,body a:hover{
+	text-decoration: none;
+}
+.fl{
+	float:left;
+}
+.fr{
+	float:right;
+}
+.clearfix:after{content:"";display:block;height:0;clear:both;visibility:hidden}
+.clearfix{*+height:1%;}
+body {
+	line-height: 1;
+	font-size:16px;
+	font-family: "微软雅黑";
+	background: #fff;
+}
+input{
+	font-family: "微软雅黑";
+}
+em{
+	font-style: italic;
+}
+button{
+	font-family: "微软雅黑";
+	cursor: pointer;
+}
+a{
+	text-decoration: none;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+.ftree{
+	background: #fff;
+	font-size: 14px;
+	line-height: 24px;
+}
+.ftree ul{
+	padding-left:0;
+}
+
+.spirit,.spiritaft{
+    position: relative;
+}
+.spirit:before,.spiritaft:after{
+  content:'';
+  display:inline-block;
+  position:absolute;
+  left:0;
+  top:0;
+  background:url(ftree.png) no-repeat;
+}
+.spiritaft:after{
+    left:auto;
+    right:0;
+}
+.ftree li{
+	margin:0;
+	padding:0;
+	position: relative;
+}
+.ftree .up{
+	padding-left:10px;
+}
+.ftree .up:before{
+	background-position: 0 -2px;
+	width:10px;
+	height:10px;
+	position: absolute;
+	top:7px;
+}
+.ftree .down{
+	padding-left:10px;
+}
+.ftree .down:before{
+	background-position: 0 -22px;
+	width:10px;
+	height:10px;
+	position: absolute;
+	top:7px;
+}
+.ftree .folder{
+	padding-left:20px;
+}
+.ftree .folder:before{
+    background-position: -15px 0;
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 4px;
+}
+.ftree .ope{
+    position: absolute;
+    top: 3px;
+    right: 20px;
+    height: 100%;
+    display: none;
+        width: 78px;
+}
+.ftree .ope a{
+	display: inline-block;
+	width:15px;
+	height:15px;
+	margin-right: 5px;
+	cursor: pointer;
+	display: none;
+}
+.ftree .ope a:before{
+	width:15px;
+	height:15px;
+}
+.ftree .add:before{
+	background-position: 0 -54px;
+}
+.ftree .edit:before{
+	background-position: -19px -54px;
+}
+.ftree .delete:before{
+	background-position: -37px -54px;
+}
+.ftree li>div{
+	display: block;
+}
+.ftree li>div>div{
+	display: inline-block;
+	position: relative;
+	padding-right: 100px;
+}
+.ftree .nodename>span{
+	display: inline-block;
+	padding:0 5px;
+	cursor: pointer;
+}
+.ftree .nodename>span:focus{
+	outline: none;
+	border:1px solid #eee;
+	box-sizing: border-box;
+}
+
+
+
+
+#tree{
+	margin-left: 20px;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title></title>
+    <link rel="stylesheet" type="text/css" href="ftree.css">
+</head>
+
+<body>
+    
+    <div id='tree'>
+    	
+    </div>
+</body>
+<script type="text/javascript" src="jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="ftree.js"></script>
+<script type="text/javascript">
+var data = [
+　　{
+　　　　"name":"报业",
+		"id":1,
+　　　　"child":[
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+				"id":11,
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　}
+　　　　]
+　　},
+　　{
+　　　　"name":"环球网",
+　　　　"child":[
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+				"canedit":false,
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　}
+　　　　]
+　　},
+　　{
+　　　　"name":"门户",
+　　　　"child":[
+　　　　　　{
+　　　　　　　　"name":"百度新闻",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"name":"人民日报",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　},
+　　　　　　{
+　　　　　　　　"name":"搜狐新闻",
+　　　　　　　　"child":[
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"主站"
+　　　　　　　　　　},
+　　　　　　　　　　{
+　　　　　　　　　　　　"name":"地方站"
+　　　　　　　　　　}
+　　　　　　　　]
+　　　　　　}
+　　　　]
+　　}
+]
+var ftree=new Ftree($("#tree"),data,
+	{
+	onAdd:function($target,$ptarget){
+		// console.log($ptarget.attr('data-id'))
+	},
+	onRename:function($target,newname){
+		if(newname==''){
+			$target.focus();
+			return false;
+		}
+		else{
+			return true;
+		}
+	},
+ 	beforeDelete:function($target, $ptarget){ 
+ 	if($ptarget.attr('data-id')==11){ return false;} 
+ 	else{ return true; } 
+ 	},
+ 	onClickItem:function($target,$ptarget){
+ 		// console.log('???')
+ 	}
+})
+</script>
+
+</html>
